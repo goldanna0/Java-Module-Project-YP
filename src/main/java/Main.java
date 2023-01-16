@@ -1,31 +1,41 @@
+
 import java.util.Scanner;
 
 // dev branch for Y.Practicum
 public class Main {
 
     public static void main(String[] args) {
-        // ваш код начнется здесь
-        // вы не должны ограничиваться только классом Main и можете создавать свои классы по необходимости
-        int peopleCount = getPeopleCount();
-        System.out.println("Делим счет на "+ peopleCount + " гостей");
+
+        int count = getPeopleCount(); //определили число гостей
+        Calculator myCalc = new Calculator(count); //создали калькулятор
+        myCalc.AddAllItems(); //получили информацию о товарах и их ценах для расчета
+        myCalc.PrintResults(); //вывели результаты расчета
+
     }
-    // эта функция возвращает введенное пользователем число гостей, на которых нужно делить счет
+
+    // этот метод возвращает введенное пользователем число гостей, на которых нужно делить счет
     public static int getPeopleCount() {
-        int myCount;
+        int peopleCount;
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Укажите, на какое количество людей нужно будет поделить счет? (>1)");
+        System.out.println("Укажите, на какое количество людей нужно будет поделить счет? (целое число>1)");
         while (true) { //повторяем, пока пользователь не введет корректное число гостей
-            myCount = myScanner.nextInt();
-            if (myCount >1) { //если получили корректное число гостей, то пора переходить к калькулятору
-                break;
-            }
-            else if (myCount==1) {
-                System.out.println("Нет смысла делить расходы на одного");
-            } else {
-                System.out.println("Введено некорректное число для подсчета");
+            if (myScanner.hasNextInt()) { //проверка типа (ожидаем целое число)
+                peopleCount = myScanner.nextInt();
+                if (peopleCount >1) { //если получили корректное число гостей, то пора переходить к калькулятору
+                    break;
+                } else if (peopleCount==1) {
+                    System.out.println("Нет смысла делить расходы на одного");
+                } else {
+                    System.out.println("Введено некорректное число для подсчета");
+                }
+            } else { //проверка формата введенных пользователем данных завершилась неуспешно
+                System.out.println("Неверный формат ввода");
+                String s = myScanner.next();
             }
             System.out.println("Укажите корректное количество гостей");
         }
-        return myCount;
+        return peopleCount;
     }
+
 }
+
