@@ -8,31 +8,32 @@ public class Main {
 
         int count = getPeopleCount(); //определили число гостей
         Calculator myCalc = new Calculator(count); //создали калькулятор
-        myCalc.AddAllItems(); //получили информацию о товарах и их ценах для расчета
-        myCalc.PrintResults(); //вывели результаты расчета
+        myCalc.addAllItems(); //получили информацию о товарах и их ценах для расчета
+        myCalc.printResults(); //вывели результаты расчета
+
 
     }
 
     // этот метод возвращает введенное пользователем число гостей, на которых нужно делить счет
-    public static int getPeopleCount() {
+    private static int getPeopleCount() {
         int peopleCount;
         Scanner myScanner = new Scanner(System.in);
         System.out.println("Укажите, на какое количество людей нужно будет поделить счет? (целое число>1)");
         while (true) { //повторяем, пока пользователь не введет корректное число гостей
             if (myScanner.hasNextInt()) { //проверка типа (ожидаем целое число)
                 peopleCount = myScanner.nextInt();
-                if (peopleCount >1) { //если получили корректное число гостей, то пора переходить к калькулятору
+                if (peopleCount > 1) { //если получили корректное число гостей, то пора переходить к калькулятору
                     break;
-                } else if (peopleCount==1) {
+                } else if (peopleCount == 1) {
                     System.out.println("Нет смысла делить расходы на одного");
-                } else if (peopleCount<0) {
+                } else if (peopleCount < 0) {
                     System.out.println("Введено отрицательное число");
                 } else {
                     System.out.println("Введено некорректное число для подсчета");
                 }
-            } else { //проверка формата введенных пользователем данных завершилась неуспешно
+            } else { //проверка формата введенных пользователем данных завершилась неуспешно ( не является int)
                 System.out.println("Неверный формат ввода");
-                String s = myScanner.next();
+                myScanner.next();
             }
             System.out.println("Укажите корректное количество гостей");
         }

@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class Item {
     String name;
     double price;
-    public void InputData(){ //Информацию о новом товаре вводит пользователь
 
-       Scanner newScanner = new Scanner(System.in);
+    public void inputData() { //Информацию о новом товаре вводит пользователь
+
+        Scanner newScanner = new Scanner(System.in);
         System.out.println("Укажите название товара:");
         name = newScanner.next();
 
@@ -16,7 +17,7 @@ public class Item {
                 break;
             } else { //проверка формата введенных пользователем данных завершилась неуспешно
                 System.out.println("Неверный формат ввода");
-                String s = newScanner.next();
+                newScanner.next();
             }
         }
 
