@@ -25,6 +25,8 @@ public class Main {
                     break;
                 } else if (peopleCount==1) {
                     System.out.println("Нет смысла делить расходы на одного");
+                } else if (peopleCount<0) {
+                    System.out.println("Введено отрицательное число");
                 } else {
                     System.out.println("Введено некорректное число для подсчета");
                 }
