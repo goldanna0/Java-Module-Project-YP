@@ -1,7 +1,3 @@
-
-import java.util.Scanner;
-
-// dev branch for Y.Practicum
 public class Main {
 
     public static void main(String[] args) {
@@ -39,5 +35,5 @@ public class Main {
         return peopleCount;
     }
 
-}
 
+}
