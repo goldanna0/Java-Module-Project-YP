@@ -18,7 +18,6 @@ public class Calculator {
         totalPrice += newitem.price;
         countOfItems++;
         System.out.println("Товар " + newitem.name + " добавлен в перечень");
-        //System.out.println("В калькуляторе "+countOfItems + " товаров");
 
     }
 
